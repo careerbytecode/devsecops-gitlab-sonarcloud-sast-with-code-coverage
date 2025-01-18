@@ -1,0 +1,8 @@
+stages:
+    - runSAST
+
+run-sast-job:
+    stage: runSAST
+    image: maven:3.8.5-openjdk-17-slim
+    script: |
+      mvn verify package sonar:sonar -Dsonar.host.url=https://sonarcloud.io/ -Dsonar.organization=Careerbytecode -Dsonar.projectKey=Careerbytecode -Dsonar.token=token01 
